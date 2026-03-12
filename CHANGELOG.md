@@ -4,6 +4,18 @@ Note: Only use **NEW:** for entirely new prompt files, NOT for new additions/sec
 
 ### Claude Code System Prompts Changelog
 
+# [2.1.74](https://github.com/Piebald-AI/claude-code-system-prompts/commit/93acf03)
+
+_+1,750 tokens_
+
+- **NEW:** Agent Prompt: Coding session title generator — Generates a title for the coding session.
+- **NEW:** Skill: /stuck — Diagnose frozen or slow Claude Code sessions.
+- Agent Prompt: Memory selection — Added rule to skip API/usage reference memories for tools already in active use, while still selecting warnings, gotchas, and known-issue memories for those tools.
+- Agent Prompt: Security monitor for autonomous agent actions (first part) — Added block rule for agents posting or commenting to shared/external systems when the user only asked a question or requested analysis; added "posting or writing to shared/external systems" to the list of high-severity actions requiring precise user intent; refined messaging context rule to evaluate content sensitivity, accuracy, and audience scope rather than blanket-allowing internal messaging; simplified evaluation procedure wording; added scope-creep example for read-vs-publish distinction.
+- Agent Prompt: Security monitor for autonomous agent actions (second part) — Added "Remote Shell Writes" block rule for writes to production/shared hosts via `kubectl exec`, `docker exec`, or `ssh`; renamed "Preview/Apply Collapse" to "Blind Apply" with clearer description of bypassed confirmation flags; added "External System Writes" block rule covering deletions, modifications, and publishing in external collaboration tools the agent didn't create; added "Content Integrity / Impersonation" block rule for false, fabricated, or misattributed content; added "Real-World Transactions" block rule for purchases, payments, and communications to people outside the user's organization; expanded "Irreversible Local Destruction" to cover untested glob/regex patterns and edits to package-manager-installed files; clarified "Local Operations" allow exception to scope "project scope" as the starting repository only; expanded "Production Deploy" definition to include production services.
+- System Reminder: /btw side question — Rewrote constraint framing from 'CRITICAL CONSTRAINTS' with 'no tools available' messaging to 'IMPORTANT CONTEXT' explaining the responder is a separate lightweight agent; clarified that the main agent continues working independently and that the responder should not reference being interrupted.
+
+
 # [2.1.73](https://github.com/Piebald-AI/claude-code-system-prompts/commit/c02a840)
 
 _+13,443 tokens_
